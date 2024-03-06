@@ -29,7 +29,9 @@
         list.appendChild(li);
       });
     }
-//This will add items into the list
+    
+// This will add items into the list
+    
     function addItem() {
       var input = document.getElementById('todoInput');
       var todo = input.value.trim();
@@ -39,17 +41,23 @@
         presentList();
       }
     }
-//This will clear the list
+    
+// This will clear the list
+    
     function clearList() {
       todolist = [];
       presentList();
     }
-//This will sort the items of the list
+    
+// This will sort the items of the list
+    
     function sortList() {
       todolist.sort();
       presentList();
     }
-//This will delete the items from the list
+    
+// This will delete the items from the list
+    
     function deleteItem() {
       var input = document.getElementById('deleteInput');
       var todoToDelete = input.value.trim();
