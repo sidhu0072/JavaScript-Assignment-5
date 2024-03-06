@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+</head>
+<body>
+  <h2>To-Do List</h2>
+  <input type="text" id="todoInput" placeholder="Enter an item"><br/><br/>
+  <button onclick="addItem()">Add</button>
+  <button onclick="clearList()">Clear</button>
+  <button onclick="sortList()">Sort</button>
+
+  <ul id="to-doList">
+    
+  </ul>
+
+  <input type="text" id="deleteInput" placeholder="Enter an item to delete"><br/><br/>
+  <button onclick="deleteItem()">Delete</button>
+
+  <script>
+    let todolist = [];
+
+    function presentList() {
+      var list = document.getElementById('to-doList');
+      list.innerHTML = '';
+      todolist.forEach(todo => {
+        var li = document.createElement('li');
+        li.textContent = todo;
+        list.appendChild(li);
+      });
+    }
+
+    function addItem() {
+      var input = document.getElementById('todoInput');
+      var todo = input.value.trim();
+      if (todo !== '') {
+        todolist.push(todo);
+        input.value = '';
+        presentList();
+      }
+    }
+
+    function clearList() {
+      todolist = [];
+      presentList();
+    }
+
+    function sortList() {
+      todolist.sort();
+      presentList();
+    }
+
+    function deleteItem() {
+      var input = document.getElementById('deleteInput');
+      var todoToDelete = input.value.trim();
+      if (todoToDelete !== '') {
+        todolist = todolist.filter(todo => todo !== todoToDelete);
+        input.value = '';
+        presentList();
+      }
+    }
+  </script>
+</body>
+</html>
